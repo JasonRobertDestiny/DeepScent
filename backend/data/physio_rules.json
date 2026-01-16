@@ -1,0 +1,200 @@
+{
+  "version": "1.0.0",
+  "description": "Physio-chemical interaction rules for Aether Physio-RAG system",
+  "rules": [
+    {
+      "id": "ph_acidic_aldehyde",
+      "condition": {
+        "parameter": "ph",
+        "operator": "<",
+        "value": 4.5
+      },
+      "target": "Aldehydes",
+      "action": "reduce_concentration",
+      "factor": 0.85,
+      "substitute": {
+        "type": "Acetal",
+        "examples": ["Aldehyde C-11 Undecylenic", "Triplal"]
+      },
+      "reasoning": "Schiff base formation accelerated in acidic environment, causing aldehyde quenching and potential skin sensitization",
+      "references": ["10.1016/j.cofs.2018.12.003"]
+    },
+    {
+      "id": "ph_acidic_ester",
+      "condition": {
+        "parameter": "ph",
+        "operator": "<",
+        "value": 4.5
+      },
+      "target": "Esters",
+      "action": "reduce_concentration",
+      "factor": 0.90,
+      "reasoning": "Ester hydrolysis accelerated in acidic conditions, leading to off-notes and reduced longevity",
+      "references": ["fragrance-chemistry-basics"]
+    },
+    {
+      "id": "ph_alkaline_floral",
+      "condition": {
+        "parameter": "ph",
+        "operator": ">",
+        "value": 6.0
+      },
+      "target": "Florals",
+      "action": "increase_concentration",
+      "factor": 1.20,
+      "reasoning": "Compensate for flattened floral notes in alkaline environment; some phenolic compounds may undergo color change",
+      "references": ["skin-ph-perfume-interaction"]
+    },
+    {
+      "id": "ph_alkaline_buffer",
+      "condition": {
+        "parameter": "ph",
+        "operator": ">",
+        "value": 6.0
+      },
+      "target": "Formula",
+      "action": "add_modifier",
+      "modifier": {
+        "type": "acidic_buffer",
+        "examples": ["citric acid derivative", "lactic acid ester"]
+      },
+      "reasoning": "Add mild acidic modifiers to stabilize pH-sensitive ingredients"
+    },
+    {
+      "id": "dry_skin_fixative",
+      "condition": {
+        "parameter": "skin_type",
+        "operator": "==",
+        "value": "Dry"
+      },
+      "target": "Fixatives",
+      "action": "boost_high_logp",
+      "threshold": {
+        "logp": 3.5
+      },
+      "factor": 1.25,
+      "reasoning": "Dry skin lacks lipid anchor for fragrance molecules. High LogP fixatives create artificial lipid matrix to extend longevity",
+      "references": ["Raoult's Law application in fragrance"]
+    },
+    {
+      "id": "dry_skin_base_notes",
+      "condition": {
+        "parameter": "skin_type",
+        "operator": "==",
+        "value": "Dry"
+      },
+      "target": "Base Notes",
+      "action": "increase_proportion",
+      "target_proportion": 0.45,
+      "reasoning": "Increase base note proportion to compensate for rapid top/middle note evaporation on dry skin"
+    },
+    {
+      "id": "oily_skin_top_notes",
+      "condition": {
+        "parameter": "skin_type",
+        "operator": "==",
+        "value": "Oily"
+      },
+      "target": "Top Notes",
+      "action": "increase_concentration",
+      "factor": 1.15,
+      "reasoning": "Oily skin suppresses volatility (low activity coefficient). Boost top notes to improve initial projection"
+    },
+    {
+      "id": "oily_skin_terpene_caution",
+      "condition": {
+        "parameter": "skin_type",
+        "operator": "==",
+        "value": "Oily"
+      },
+      "target": "Citrus Terpenes",
+      "action": "flag_oxidation_risk",
+      "substitute": {
+        "type": "saturated_alternatives",
+        "examples": ["dihydromyrcenol", "cyclic ethers"]
+      },
+      "reasoning": "Squalene in sebum can co-oxidize with unsaturated terpenes (limonene, linalool), forming sensitizing hydroperoxides",
+      "references": ["10.1111/j.1600-0536.2005.00653.x"]
+    },
+    {
+      "id": "warm_skin_volatility",
+      "condition": {
+        "parameter": "temperature",
+        "operator": ">",
+        "value": 37.2
+      },
+      "target": "Top Notes",
+      "action": "reduce_proportion",
+      "target_proportion": 0.15,
+      "reasoning": "Antoine equation: vapor pressure increases exponentially with temperature. Reduce volatile top notes to prevent instant burn-off"
+    },
+    {
+      "id": "warm_skin_molecular_weight",
+      "condition": {
+        "parameter": "temperature",
+        "operator": ">",
+        "value": 37.2
+      },
+      "target": "All Notes",
+      "action": "prefer_higher_mw",
+      "threshold": {
+        "min_mw": 180
+      },
+      "reasoning": "Higher molecular weight analogs have lower vapor pressure, providing controlled release at elevated body temperature"
+    },
+    {
+      "id": "cool_skin_base_reduction",
+      "condition": {
+        "parameter": "temperature",
+        "operator": "<",
+        "value": 36.0
+      },
+      "target": "Base Notes",
+      "action": "reduce_heavy_bases",
+      "factor": 0.85,
+      "reasoning": "Cool skin provides insufficient energy for heavy molecules to volatilize, leading to muted, closed-off scent"
+    },
+    {
+      "id": "allergen_linalool_limit",
+      "condition": {
+        "parameter": "allergies",
+        "operator": "contains",
+        "value": "linalool"
+      },
+      "target": "Linalool",
+      "action": "eliminate_or_substitute",
+      "max_concentration": 0.01,
+      "substitute": {
+        "type": "non-allergenic",
+        "examples": ["Linalyl acetate", "Petitgrain oil"]
+      },
+      "reasoning": "IFRA restricted allergen - must be declared above 0.001% in leave-on products"
+    },
+    {
+      "id": "allergen_citral_limit",
+      "condition": {
+        "parameter": "allergies",
+        "operator": "contains",
+        "value": "citral"
+      },
+      "target": "Citral",
+      "action": "eliminate_or_substitute",
+      "max_concentration": 0.01,
+      "substitute": {
+        "type": "stable_citrus",
+        "examples": ["Citronellal", "Hydroxycitronellal"]
+      },
+      "reasoning": "Citral (geranial+neral) is a common sensitizer; use more stable citrus alternatives"
+    }
+  ],
+  "metadata": {
+    "created": "2026-01-15",
+    "source": "Aether Physio-RAG Knowledge Base",
+    "scientific_basis": [
+      "Schiff base chemistry in fragrance",
+      "Raoult's Law for vapor-liquid equilibrium",
+      "Antoine equation for temperature-dependent vapor pressure",
+      "IFRA 51st Amendment (2023) guidelines"
+    ]
+  }
+}

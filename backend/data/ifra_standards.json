@@ -1,0 +1,206 @@
+{
+  "version": "51st Amendment (2023)",
+  "description": "IFRA (International Fragrance Association) safety standards for cosmetic use",
+  "product_categories": {
+    "cat1": {
+      "name": "Leave-on (direct skin contact)",
+      "examples": ["perfume", "eau de toilette", "body lotion"],
+      "allergen_declaration_threshold": 0.001
+    },
+    "cat2": {
+      "name": "Rinse-off",
+      "examples": ["shampoo", "shower gel", "hand soap"],
+      "allergen_declaration_threshold": 0.01
+    }
+  },
+  "restricted_substances": [
+    {
+      "name": "Oakmoss Absolute",
+      "cas": "9000-50-4",
+      "max_concentration_cat1": 0.1,
+      "reason": "Atranol and chloroatranol content (sensitizers)"
+    },
+    {
+      "name": "Tree Moss Absolute",
+      "cas": "90028-67-4",
+      "max_concentration_cat1": 0.1,
+      "reason": "Atranol and chloroatranol content"
+    },
+    {
+      "name": "Methyl Eugenol",
+      "cas": "93-15-2",
+      "max_concentration_cat1": 0.0002,
+      "reason": "Genotoxic carcinogen"
+    },
+    {
+      "name": "Safrole",
+      "cas": "94-59-7",
+      "max_concentration_cat1": 0.01,
+      "reason": "Carcinogenic"
+    },
+    {
+      "name": "Coumarin",
+      "cas": "91-64-5",
+      "max_concentration_cat1": 0.8,
+      "reason": "Hepatotoxic at high doses"
+    },
+    {
+      "name": "HICC (Lyral)",
+      "cas": "31906-04-4",
+      "max_concentration_cat1": 0,
+      "reason": "Banned - severe skin sensitizer"
+    }
+  ],
+  "allergens_declaration_required": [
+    {
+      "name": "Linalool",
+      "cas": "78-70-6",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Limonene",
+      "cas": "5989-27-5",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Citral",
+      "cas": "5392-40-5",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Geraniol",
+      "cas": "106-24-1",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Citronellol",
+      "cas": "106-22-9",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Coumarin",
+      "cas": "91-64-5",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Eugenol",
+      "cas": "97-53-0",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Isoeugenol",
+      "cas": "97-54-1",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Cinnamal",
+      "cas": "104-55-2",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Cinnamyl Alcohol",
+      "cas": "104-54-1",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Hydroxycitronellal",
+      "cas": "107-75-5",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Benzyl Alcohol",
+      "cas": "100-51-6",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Benzyl Benzoate",
+      "cas": "120-51-4",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Benzyl Salicylate",
+      "cas": "118-58-1",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Farnesol",
+      "cas": "4602-84-0",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Hexyl Cinnamal",
+      "cas": "101-86-0",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Butylphenyl Methylpropional (Lilial)",
+      "cas": "80-54-6",
+      "threshold_cat1": 0,
+      "note": "Banned in EU from March 2022"
+    },
+    {
+      "name": "Alpha-Isomethyl Ionone",
+      "cas": "127-51-5",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Amyl Cinnamal",
+      "cas": "122-40-7",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Amylcinnamyl Alcohol",
+      "cas": "101-85-9",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Anise Alcohol",
+      "cas": "105-13-5",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Benzyl Cinnamate",
+      "cas": "103-41-3",
+      "threshold_cat1": 0.001
+    },
+    {
+      "name": "Methyl 2-Octynoate",
+      "cas": "111-12-6",
+      "threshold_cat1": 0.001
+    }
+  ],
+  "phototoxicity_limits": [
+    {
+      "name": "Bergamot Oil (FCF-free)",
+      "max_concentration_cat1": 0.4,
+      "reason": "Bergapten removed for phototoxicity"
+    },
+    {
+      "name": "Lime Oil expressed",
+      "max_concentration_cat1": 0.7,
+      "reason": "Furocoumarin content"
+    },
+    {
+      "name": "Lemon Oil expressed",
+      "max_concentration_cat1": 2.0,
+      "reason": "Furocoumarin content"
+    },
+    {
+      "name": "Grapefruit Oil",
+      "max_concentration_cat1": 4.0,
+      "reason": "Furocoumarin content"
+    }
+  ],
+  "total_allergen_limits": {
+    "cat1_leave_on": {
+      "max_total_percentage": 1.0,
+      "recommendation": "Keep total allergen load below 1% for sensitive consumers"
+    }
+  },
+  "metadata": {
+    "source": "IFRA Standards Library",
+    "last_updated": "2023-12-01",
+    "applicable_regions": ["EU", "USA", "Global"],
+    "notes": "This is a simplified subset for MVP. Full IFRA database has 180+ restricted substances."
+  }
+}
