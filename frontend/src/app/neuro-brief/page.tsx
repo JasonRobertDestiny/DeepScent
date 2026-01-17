@@ -239,7 +239,7 @@ export default function NeuroBriefPage() {
         animate={{ opacity: 1, y: 0 }}
       >
         <Link href="/" className="font-display text-xl text-gold-gradient">
-          AETHER
+          SENSORA
         </Link>
         <Link href="/calibration" className="text-aether-cream/50 hover:text-aether-gold transition-colors text-sm">
           Back

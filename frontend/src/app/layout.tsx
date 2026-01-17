@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Aether | AI-Powered Personalized Fragrance',
-  description: 'Experience the future of perfumery. Aether uses neural interfaces and bio-calibration to create your perfect, personalized fragrance.',
+  title: 'Sensora | Fragrance That Feels You',
+  description: 'Experience the future of perfumery. Sensora uses neural interfaces and bio-calibration to create your perfect, personalized fragrance.',
   keywords: ['perfume', 'fragrance', 'AI', 'personalized', 'luxury', 'neural', 'bio-calibration'],
 }
 

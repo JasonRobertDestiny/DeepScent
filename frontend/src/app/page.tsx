@@ -90,7 +90,7 @@ function PerfumeBottle() {
           fontSize="16"
           fontWeight="500"
         >
-          AETHER
+          SENSORA
         </text>
 
         {/* Decorative line */}
@@ -203,7 +203,7 @@ export default function LandingPage() {
             className="font-display text-2xl text-gold-gradient"
             whileHover={{ scale: 1.05 }}
           >
-            AETHER
+            SENSORA
           </motion.div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-aether-cream/70 hover:text-aether-gold transition-colors">
@@ -255,7 +255,7 @@ export default function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              Aether harnesses bio-calibration and neural interfaces to craft
+              Sensora harnesses bio-calibration and neural interfaces to craft
               a fragrance as unique as your biochemistry. Experience perfumery
               reimagined for the individual.
             </motion.p>
@@ -395,7 +395,7 @@ export default function LandingPage() {
                   volatilization curves.
                 </p>
                 <p className="text-aether-cream/70 leading-relaxed">
-                  Aether's Physio-RAG engine retrieves from a knowledge base of
+                  Sensora's Physio-RAG engine retrieves from a knowledge base of
                   dermatological and chemical rules, dynamically adjusting your
                   formula for your unique biochemistry.
                 </p>
@@ -445,7 +445,7 @@ export default function LandingPage() {
           </h2>
           <p className="text-aether-cream/70 mb-8 max-w-xl mx-auto">
             The journey to your perfect fragrance begins with understanding your
-            unique chemistry. Let Aether guide you.
+            unique chemistry. Let Sensora guide you.
           </p>
           <Link href="/calibration">
             <motion.button
